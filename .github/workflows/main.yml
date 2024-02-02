@@ -16,8 +16,6 @@ jobs:
         run: Rscript -e 'install.packages(c("rmarkdown", "RefManageR"))'
       - name: Render README
         run: Rscript -e 'rmarkdown::render("README.Rmd", output_format = "md_document")'
-      - name: Render PUBS
-        run: Rscript -e 'rmarkdown::render("references.Rmd", output_format = "pdf_document")'
       - name: Commit results
         run: |
           git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
