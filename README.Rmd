@@ -3,3 +3,7 @@ output: github_document
 ---
 
 wowoooooo che figo, proviamo
+
+```{r}
+iris[1:10, ]
+```
