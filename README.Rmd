@@ -5,5 +5,15 @@ output: github_document
 # wowoooooo che figo, proviamo
 
 ```{r}
-iris[1:10, ]
+#| output: asis
+#| message: false
+#| warning: false
+#| echo: false
+library(RefManageR)
+download.file("https://raw.githubusercontent.com/filippogambarota/fg-publications/main/fg-references.bib", "refs.bib")
+
+bib <- ReadBib("refs.bib")
+NoCite(bib, "*")
+PrintBibliography(bib, .opts = list(style = "latex",
+                      bib.style = "authoryear"))
 ```

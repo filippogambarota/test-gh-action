@@ -1,0 +1,29 @@
+---
+title: 'Filippo Gambarota'
+subtitle: 'Publications'
+output: pdf_document
+date: "Last update: `r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(RefManageR)
+format_bib <- function(bib){
+    for(i in 1:length(bib)){
+        out <- capture.output(print(bib[[i]], .opts = list(bib.style = "authoryear")))
+        out <- gsub("Gambarota", "**Gambarota**", out)
+        cat(out)
+        cat("\n\n")
+    }
+}
+```
+
+```{r}
+#| echo: false
+#| results: asis
+download.file("https://raw.githubusercontent.com/filippogambarota/fg-publications/main/fg-references.bib", "refs.bib")
+bib <- ReadBib("refs.bib")
+NoCite(bib, "*")
+format_bib(bib)
+```
+
